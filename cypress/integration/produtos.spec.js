@@ -17,7 +17,7 @@ describe('Funcionalidade de páginas de produtos', () => {
 
     });
 
-    it.only('Deve selecionar um produto no carrinho', () => {
+    it('Deve selecionar um produto no carrinho', () => {
         var quantidade = 3
 
         cy.get('[class="product-block grid"]')
@@ -31,4 +31,11 @@ describe('Funcionalidade de páginas de produtos', () => {
             cy.get('.woocommerce-message').should('contain', quantidade +  ' × “Vulcan Weightlifting Tank” foram adicionados no seu carrinho')
     });
 
+    it('Deve adicionar no carrinho - Usando comando customizados', () => {
+        cy.addProdutos('Cassius Sparring Tank', 'Blue' , 3)
+    });
+
+    it('Deve adicionar no carrinho - Usando comando customizados', () => {
+        cy.addProdutos('Vulcan Weightlifting Tank','XS', 'Black' , 2)
+    });
 });
